@@ -22,7 +22,7 @@ export default class App extends React.Component {
             <h1>Hello {this.state.name}</h1>
             <CatChart
                 name={this.state.name}
-                updateName={this.updateName}
+                changeName={this.updateName}
             />
             </div>
         );
