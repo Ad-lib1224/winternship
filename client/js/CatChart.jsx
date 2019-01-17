@@ -19,7 +19,7 @@ export default class CatChart extends React.Component {
     }
 
     async getData() {
-        const res = await axios.get('http://127.0.0.1:5000/api/data');
+        const res = await axios.get('http://127.0.0.1:5000/api/barData');
         console.log('Response', res)
         return res.data;
     }

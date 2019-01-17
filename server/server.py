@@ -11,20 +11,23 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 def index():
     return render_template('index.html')
 
-@app.route('/api/data')
-def data():
-    return get_data('cats')
+@app.route('/api/barData')
+def barData():
+    return get_data('cats', 1)
 
-@app.route('/api/data2')
-def data2():
-	return get_data('dogs')
+@app.route('/api/lineData')
+def lineData():
+	return get_data('cats', 0)
 
 # Returns randomly generated data
-def get_data(animal):
+def get_data(animal, label):
     data = [];
     for i in range(40):
     	randomNum = random.randint(0, 100)
-    	temp = {'day': i, animal: randomNum, 'label': randomNum}
+    	if label == 1:
+    		temp = {'day': i, animal: randomNum, 'label': randomNum}
+    	else:
+    		temp = {'day': i, animal: randomNum}
     	data.append(temp)
 
     return jsonify(data), 200
