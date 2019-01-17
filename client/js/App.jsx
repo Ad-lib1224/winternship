@@ -9,6 +9,11 @@ export default class App extends React.Component {
         this.state = {
             name: 'Sarah'
         }
+        this.updateName = this.updateName.bind(this);
+    }
+
+    updateName(name) {
+        this.setState({name: name});
     }
 
     render() {
@@ -17,6 +22,7 @@ export default class App extends React.Component {
             <h1>Hello {this.state.name}</h1>
             <CatChart
                 name={this.state.name}
+                updateName={this.updateName}
             />
             </div>
         );
