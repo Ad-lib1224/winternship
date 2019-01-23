@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "react-google-charts": "^2.0.29",
     "victory": "^31.0.2"
   }
 }
