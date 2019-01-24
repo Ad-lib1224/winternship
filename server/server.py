@@ -12,14 +12,6 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 def index():
     return render_template('index.html')
 
-@app.route('/api/barData')
-def barData():
-    return get_data('cats', 1)
-
-@app.route('/api/lineData')
-def lineData():
-	return get_data('cats', 0)
-
 @app.route('/api/freqData')
 def freqData():
     return format_label_freq_data()
@@ -28,18 +20,24 @@ def freqData():
 def LabelSafeSearch():
     return format_label_safe_search_data()
 
-# Returns randomly generated data
-def get_data(animal, label):
-    data = [];
-    for i in range(40):
-    	randomNum = random.randint(0, 100)
-    	if label == 1:
-    		temp = {'day': i, animal: randomNum, 'label': randomNum}
-    	else:
-    		temp = {'day': i, animal: randomNum}
-    	data.append(temp)
+@app.route('/api/wordcount')
+def WordCount():
+    return formatFreqData('./server/WordCount.csv')
 
-    return jsonify(data), 200
+@app.route('/api/wordfrequency')
+def WordFrequency():
+    return formatFreqData('./server/wordfrequency.csv')
+
+
+def formatFreqData(filename):
+    print(filename)
+    data=[]
+    with open(filename) as csv_file:
+        csv_reader = csv.reader(csv_file,delimiter=',')
+        for row in csv_reader:
+            temp=[row[0],row[1]]
+            data.append(temp)
+        return jsonify(data),200
 
 
 def format_label_freq_data(): 
@@ -49,8 +47,6 @@ def format_label_freq_data():
         for row in csv_reader:
             temp = [row[0], row[1]]
             arr.append(temp)
-        print(arr)
-
         return jsonify(arr), 200
 
 def format_label_safe_search_data():
@@ -60,8 +56,6 @@ def format_label_safe_search_data():
         for row in csv_reader:
             temp = [row[0],row[1],row[2],row[3],row[4],row[5]]
             arr.append(temp)
-        print(arr)
-
         return jsonify(arr), 200
 
 
