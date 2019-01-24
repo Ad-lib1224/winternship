@@ -50,6 +50,11 @@ export default class WordChart extends React.Component {
                 }}
                 rootProps={{ 'data-testid': '1' }}
               />
+              <h3>Word Chart Insight</h3>
+                <p>After analyzing the text data and computing the word count of each ad, we merged the data together to determine the statisitics of how much ads have text
+                and how much ads had that amount of words. According to the dataset, 714 of the 10,000 ads do not have text, which had the most frequent ads. This can be due to the human brain hardwired to understand visuals
+                better than text, thus poeple remember 80% of what they see compared to the 20% they read. Assuming this logic, we can confirm that this may the reason why most ads have 0-45 words. (Not the complete  dataset due
+                to the frequency of higher word count consisting of one to three ads)</p>
           </div>
       );
   }

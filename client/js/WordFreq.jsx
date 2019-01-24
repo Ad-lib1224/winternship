@@ -40,20 +40,19 @@ export default class WordFreq extends React.Component {
                 options={{
                   hAxis: {
                     title: 'Frequency',
-                    max: 720
-                    // format: 'short',
                   },
                   vAxis: {
                     title: 'Words',
-                    max: 90
-                    // format: 'decimal',
-                    // format:'scientific'
-                    // format:'long'
-                    // format:'percent'
                   },
                 }}
                 rootProps={{ 'data-testid': '1' }}
               />
+              <h3>Word Frequency Insight</h3>
+                <p>Using python, we were able to obtain the frequency of the appearance of each word. By trimming the dataset to contain the 
+                top twenty words that appear most frequently, we were able to make a chart showing the data. According to the chart, the word "now" 
+                appears the most frequently, with an appearance of 2,134 times compared to the word "the" which appeared 1,896 times. The reason "now"
+                most likely appears the most is due to it meaning the present. It's an adverb that draws the attention of someone to a statment, or in 
+                this case ads. By attracting the attention of its consumers, these ads promote themselves and may possibly lead to a potential customer. </p>
           </div>
       );
   }
