@@ -43,11 +43,11 @@ export default class LabelSafeSearch extends React.Component {
                 height = {'500px'}
                 options={{
                   hAxis: {
-                    title: 'Top 34 Labels',
+                    title: 'Percentage of Safe Search Content Likelihood',
                     max: 720
                   },
                   vAxis: {
-                    title: 'Percentage of Safe Search Content Likelihood',
+                    title: 'Top 34 Labels',
                     max: 90
                   },
                 }}
