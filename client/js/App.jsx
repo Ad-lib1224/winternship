@@ -1,5 +1,6 @@
 import React from "react";
 import FrequencyChart from "./LabelFrequency";
+import LabelSafeSearch from './LabelSafeSearch';
 
 require('../css/styles.css');
 
@@ -16,6 +17,9 @@ export default class App extends React.Component {
             <div>
             <h1>Hello {this.state.name}</h1>
             <FrequencyChart
+                name={this.state.name}
+            />
+            <LabelSafeSearch
                 name={this.state.name}
             />
             </div>

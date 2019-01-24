@@ -23,6 +23,11 @@ def lineData():
 @app.route('/api/freqData')
 def freqData():
     return format_label_freq_data()
+
+@app.route('/api/LabelSafeSearch')
+def LabelSafeSearch():
+    return format_label_safe_search_data()
+
 # Returns randomly generated data
 def get_data(animal, label):
     data = [];
@@ -38,17 +43,22 @@ def get_data(animal, label):
 
 
 def format_label_freq_data(): 
-    # data = []
-    # entry = pandas.read.csv('/Users/kargoloaner/Desktop/winternship-master/winternship/server/WINTERNS_GV_DATA - Frequency of Label Description.csv').split(',')
-    # for row in entry:
-    #     data.append(row[0][1])
-    # print(data)
-    # return jsonify(data), 200
     with open('./server/test.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         arr = []
         for row in csv_reader:
             temp = [row[0], row[1]]
+            arr.append(temp)
+        print(arr)
+
+        return jsonify(arr), 200
+
+def format_label_safe_search_data():
+    with open('./server/LabelSafeSearch.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        arr = []
+        for row in csv_reader:
+            temp = [row[0],row[1],row[2],row[3],row[4],row[5]]
             arr.append(temp)
         print(arr)
 
