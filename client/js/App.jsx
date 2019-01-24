@@ -7,16 +7,20 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: 'Sarah'
+            name: 'Kargo Engineering Team'
         }
+        this.updateName=this.updateName.bind(this)
     }
 
+    updateName(){
+        this.setState({name: 'Geetha'});
+    }
     render() {
         return (
             <div>
-            <h1>Hello {this.state.name}</h1>
             <CatChart
                 name={this.state.name}
+                changeName={this.updateName}
             />
             </div>
         );

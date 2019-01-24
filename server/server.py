@@ -32,6 +32,16 @@ def get_data(animal, label):
 
     return jsonify(data), 200
 
+def formatFreqData(filename):
+    print(filename)
+    data=[]
+    with open(filename) as csv_file:
+        csv_reader = csv.reader(csv_file,delimiter=',')
+        for row in csv_reader:
+            temp=[row[0],row[1]]
+            data.append(temp)
+        return jsonify(data),200
 
+        
 if __name__ == '__main__':
     app.run()
