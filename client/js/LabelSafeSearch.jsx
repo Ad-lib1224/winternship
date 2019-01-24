@@ -53,6 +53,10 @@ export default class LabelSafeSearch extends React.Component {
                 }}
                 rootProps={{ 'data-testid': '1' }}
               />
+              <h3>Insights</h3>
+                <p>This graph depicts the top 34 labels and the likelihood of being considered as "adult", "medical", "spoofed", "violence" and "racy" content.
+                The labels that have the highest "racy" content are "yellow", "purple", "clothing" and "muscle". 
+                Of those however, the most interesting one is "muscle" because those 40% of the "muscle" ads are considered as adult content and 100% are "racy".</p>
           </div>
       );
   }

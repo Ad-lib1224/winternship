@@ -44,6 +44,11 @@ export default class FrequencyChart extends React.Component {
                   rootProps={{ 'data-testid': '1' }}
                 />
                 <hr/>
+                <h3>Label Frequency Insights</h3>
+                  <p>This chart depicts the top 34 most frequently detected labels returned from Google Vision API.
+                  3,676 of the creatives were labeled as text so it would be interesting to see how much traffic these creatives are generating since it's safe to conclude that it is considered as a "text" ad.
+                  "Blue" and "product" are the second and third leading labels. So, we could also think about the functionality of the color blue in advertising, especially since twenty-nine of the
+                  World's Top 100 famous brands, including, IBM, Samsung, General Electric and Facebook, have blue logos. Does this mean that Kargo should consider more blue creatives?</p>
             </div>
         );
     }
