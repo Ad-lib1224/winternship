@@ -1,4 +1,6 @@
 import React from "react";
+import FrequencyChart from "./LabelFrequency";
+import LabelSafeSearch from './LabelSafeSearch';
 import WordChart from "./WordChart";
 import WordFreq from "./WordFreq";
 
@@ -15,9 +17,13 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-            <WordChart
-                name={this.state.name}
-            />
+            <h1>Hello {this.state.name}</h1>
+            <FrequencyChart/>
+            <hr />
+            <LabelSafeSearch />
+            <hr />
+            <WordChart />
+            <hr />
             <WordFreq />
             </div>
         );
