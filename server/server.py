@@ -1,4 +1,5 @@
 import random
+import csv
 from flask import Flask, render_template, jsonify
 from flask_cors import CORS
 
@@ -18,6 +19,14 @@ def barData():
 @app.route('/api/lineData')
 def lineData():
 	return get_data('cats', 0)
+
+@app.route('/api/wordcount')
+def WordCount():
+    return formatFreqData('./server/WordCount.csv')
+
+@app.route('/api/wordfrequency')
+def WordFrequency():
+    return formatFreqData('./server/wordfrequency.csv')
 
 # Returns randomly generated data
 def get_data(animal, label):
@@ -42,6 +51,6 @@ def formatFreqData(filename):
             data.append(temp)
         return jsonify(data),200
 
-        
+
 if __name__ == '__main__':
     app.run()

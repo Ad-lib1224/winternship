@@ -4,7 +4,7 @@ import { Chart } from 'react-google-charts'
 import { Button, Grid, Row, Col } from "react-bootstrap";
 
 
-export default class WordChart extends React.Component {
+export default class WordFreq extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -13,7 +13,7 @@ export default class WordChart extends React.Component {
   }
 
   async componentDidMount() {
-    const data = await this.getData('wordcount');
+    const data = await this.getData('wordfrequency');
     this.setState({data: data});
   }
 
@@ -21,7 +21,6 @@ export default class WordChart extends React.Component {
       const res = await axios.get(`http://127.0.0.1:5000/api/${endpoint}`);
       const temp = res.data.shift();
       res.data.forEach((arr)=> {
-        arr[0]=parseInt(arr[0]);
         arr[1]=parseInt(arr[1]);
       });
 
@@ -40,12 +39,17 @@ export default class WordChart extends React.Component {
                 height = {'500px'}
                 options={{
                   hAxis: {
-                    title: '# of Creatives',
+                    title: 'Frequency',
                     max: 720
+                    // format: 'short',
                   },
                   vAxis: {
-                    title: 'Word Count',
+                    title: 'Words',
                     max: 90
+                    // format: 'decimal',
+                    // format:'scientific'
+                    // format:'long'
+                    // format:'percent'
                   },
                 }}
                 rootProps={{ 'data-testid': '1' }}
@@ -53,4 +57,5 @@ export default class WordChart extends React.Component {
           </div>
       );
   }
+
 }
